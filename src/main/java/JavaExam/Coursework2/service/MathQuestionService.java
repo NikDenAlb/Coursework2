@@ -11,11 +11,11 @@ import java.util.Collection;
 import java.util.Random;
 
 @Service
-@Qualifier("javaQuestionService")
-public class JavaQuestionService implements QuestionService {
+@Qualifier("mathQuestionService")
+public class MathQuestionService implements QuestionService {
     private final QuestionRepository javaQuestionRepository;
 
-    public JavaQuestionService(@Qualifier("javaQuestionRepository")QuestionRepository javaQuestionRepository) {
+    public MathQuestionService(@Qualifier("mathQuestionRepository")QuestionRepository javaQuestionRepository) {
         this.javaQuestionRepository = javaQuestionRepository;
     }
 
@@ -24,7 +24,7 @@ public class JavaQuestionService implements QuestionService {
         if (question == null) {
             throw new NullQuestionIsNotAllowedException("String Question can't be null");
         }
-        return javaQuestionRepository.add(new Question(question, answer));
+         return javaQuestionRepository.add(new Question(question, answer));
     }
 
     @Override

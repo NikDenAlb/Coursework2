@@ -36,4 +36,37 @@ public class Constants {
             EXPECTED_QUESTION1,
             EXPECTED_QUESTION2,
             EXPECTED_QUESTION4);
+    public static final String MATH_QUESTION_OF_EXPECTED1 = "MQuestion1";
+    public static final String MATH_QUESTION_OF_EXPECTED2 = "MQuestion2";
+    public static final String MATH_QUESTION_OF_EXPECTED3 = "MQuestion3";
+    public static final String MATH_QUESTION_OF_EXPECTED4 = "MQuestion4";
+    public static final String MATH_ANSWER_OF_EXPECTED1 = "MAnswer1";
+    public static final String MATH_ANSWER_OF_EXPECTED2 = "MAnswer2";
+    public static final String MATH_ANSWER_OF_EXPECTED3 = "MAnswer3";
+    public static final String MATH_ANSWER_OF_EXPECTED4 = "MAnswer4";
+    public static final Question MATH_EXPECTED_QUESTION1 = new Question(MATH_QUESTION_OF_EXPECTED1, MATH_ANSWER_OF_EXPECTED1);
+    public static final Question MATH_EXPECTED_QUESTION2 = new Question(MATH_QUESTION_OF_EXPECTED2, MATH_ANSWER_OF_EXPECTED2);
+    public static final Question MATH_EXPECTED_QUESTION3 = new Question(MATH_QUESTION_OF_EXPECTED3, MATH_ANSWER_OF_EXPECTED3);
+    public static final Question MATH_EXPECTED_QUESTION4 = new Question(MATH_QUESTION_OF_EXPECTED4, MATH_ANSWER_OF_EXPECTED4);
+    public static final Set<Question> EXPECTED_MATH_QUESTION_LIST = Set.of(
+            MATH_EXPECTED_QUESTION1,
+            MATH_EXPECTED_QUESTION2,
+            MATH_EXPECTED_QUESTION3,
+            MATH_EXPECTED_QUESTION4);
+    public static final Set<Question> EXPECTED_BOTH_QUESTION_LIST = Set.of(
+            EXPECTED_QUESTION1,
+            EXPECTED_QUESTION2,
+            EXPECTED_QUESTION3,
+            EXPECTED_QUESTION4,
+            MATH_EXPECTED_QUESTION1,
+            MATH_EXPECTED_QUESTION2,
+            MATH_EXPECTED_QUESTION3,
+            MATH_EXPECTED_QUESTION4);
+    public static final Set<Question> EXPECTED_QUESTION_LIST_WITH_QUESTION_EXAMPLE = Set.of(
+            EXPECTED_QUESTION1,
+            EXPECTED_QUESTION2,
+            EXPECTED_QUESTION3,
+            QUESTION_EXAMPLE,
+            EXPECTED_QUESTION4);
+    public static Question NULL_QUESTION = null;
 }
