@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ExamControllerAdvice {
-    @ExceptionHandler(RuntimeException.class)
+    @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleRuntimeException(RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getClass()+"  "+e.getMessage());
     }
 }

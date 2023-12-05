@@ -18,16 +18,16 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class JavaQuestionServiceTests {
+public class ThirdQuestionServiceTests {
     @Mock
-    private JavaQuestionRepository javaQuestionRepositoryMock;
+    private JavaQuestionRepository thirdQuestionRepositoryMock;
 
     @InjectMocks
     private JavaQuestionService javaQuestionService;
 
     @Test
     void addTest() {
-        when(javaQuestionRepositoryMock.add(any())).thenReturn(QUESTION_EXAMPLE);
+        when(thirdQuestionRepositoryMock.add(any())).thenReturn(QUESTION_EXAMPLE);
         assertEquals(QUESTION_EXAMPLE, javaQuestionService.add(QUESTION_STRING_EXAMPLE, ANSWER_STRING_EXAMPLE));
     }
 
@@ -38,34 +38,34 @@ public class JavaQuestionServiceTests {
 
     @Test
     void addQTest() {
-        when(javaQuestionRepositoryMock.add(QUESTION_EXAMPLE)).thenReturn(QUESTION_EXAMPLE);
+        when(thirdQuestionRepositoryMock.add(QUESTION_EXAMPLE)).thenReturn(QUESTION_EXAMPLE);
         assertEquals(QUESTION_EXAMPLE, javaQuestionService.add(QUESTION_EXAMPLE));
     }
 
     @Test
     void removeTest() {
-        when(javaQuestionRepositoryMock.remove(QUESTION_EXAMPLE)).thenReturn(QUESTION_EXAMPLE);
+        when(thirdQuestionRepositoryMock.remove(QUESTION_EXAMPLE)).thenReturn(QUESTION_EXAMPLE);
         assertEquals(QUESTION_EXAMPLE, javaQuestionService.remove(QUESTION_EXAMPLE));
     }
 
     @Test
     void getAll() {
-        when(javaQuestionRepositoryMock.getAll()).thenReturn(EXPECTED_QUESTION_LIST);
+        when(thirdQuestionRepositoryMock.getAll()).thenReturn(EXPECTED_QUESTION_LIST);
         assertEquals(EXPECTED_QUESTION_LIST, javaQuestionService.getAll());
     }
 
     @Test
     void getRandomQuestionTest() {
-        when(javaQuestionRepositoryMock.getAll()).thenReturn(QUESTION_EXAMPLE_LIST);
+        when(thirdQuestionRepositoryMock.getAll()).thenReturn(QUESTION_EXAMPLE_LIST);
         assertEquals(QUESTION_EXAMPLE, javaQuestionService.getRandomQuestion());
 
-        when(javaQuestionRepositoryMock.getAll()).thenReturn(EXPECTED_QUESTION_LIST);
+        when(thirdQuestionRepositoryMock.getAll()).thenReturn(EXPECTED_QUESTION_LIST);
         assertTrue(EXPECTED_QUESTION_LIST.contains(javaQuestionService.getRandomQuestion()));
     }
 
     @Test
     void getRandomQuestionNegativeTest() {
-        when(javaQuestionRepositoryMock.getAll()).thenReturn(new HashSet<>());
+        when(thirdQuestionRepositoryMock.getAll()).thenReturn(new HashSet<>());
         assertThrows(NoQuestionsException.class, () -> javaQuestionService.getRandomQuestion());
     }
 }

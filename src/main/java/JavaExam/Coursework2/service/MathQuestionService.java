@@ -1,6 +1,5 @@
 package JavaExam.Coursework2.service;
 
-import JavaExam.Coursework2.exceptions.NoQuestionsException;
 import JavaExam.Coursework2.exceptions.NullQuestionIsNotAllowedException;
 import JavaExam.Coursework2.model.Question;
 import JavaExam.Coursework2.repository.QuestionRepository;
@@ -15,7 +14,7 @@ import java.util.Random;
 public class MathQuestionService implements QuestionService {
     private final QuestionRepository javaQuestionRepository;
 
-    public MathQuestionService(@Qualifier("mathQuestionRepository")QuestionRepository javaQuestionRepository) {
+    public MathQuestionService(@Qualifier("mathQuestionRepository") QuestionRepository javaQuestionRepository) {
         this.javaQuestionRepository = javaQuestionRepository;
     }
 
@@ -24,7 +23,7 @@ public class MathQuestionService implements QuestionService {
         if (question == null) {
             throw new NullQuestionIsNotAllowedException("String Question can't be null");
         }
-         return javaQuestionRepository.add(new Question(question, answer));
+        return javaQuestionRepository.add(new Question(question, answer));
     }
 
     @Override
@@ -44,10 +43,28 @@ public class MathQuestionService implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
-        if (javaQuestionRepository.getAll().isEmpty()) {
-            throw new NoQuestionsException("There is no questions");
-        }
         Random a = new Random();
-        return (Question) javaQuestionRepository.getAll().toArray()[a.nextInt(javaQuestionRepository.getAll().size())];
+        int x;
+        int y;
+
+        switch (a.nextInt(4)) {
+            case 0:
+                x = a.nextInt(100);
+                y = a.nextInt(100);
+                return new Question(x + " + " + y + " =?", Integer.toString(x + y));
+            case 1:
+                x = a.nextInt(100);
+                y = a.nextInt(100);
+                return new Question(x + " - " + y + " =?", Integer.toString(x - y));
+            case 2:
+                x = a.nextInt(100);
+                y = a.nextInt(100);
+                return new Question(x + " * " + y + " =?", Integer.toString(x * y));
+            case 3:
+                x = a.nextInt(100);
+                y = 1+ a.nextInt(99);
+                return new Question("(integer) x" + " / " + y + " =?", Integer.toString(x / y));
+        }
+        throw new RuntimeException("Incorrect work of Random.nextInt");
     }
 }
